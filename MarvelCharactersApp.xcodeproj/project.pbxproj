@@ -15,7 +15,6 @@
 		4F9EA04E2224798400DF18DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9EA04D2224798400DF18DC /* main.m */; };
 		4F9EA056222479DC00DF18DC /* CharactersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9EA055222479DC00DF18DC /* CharactersCollectionViewController.m */; };
 		4F9EA059222479F400DF18DC /* CharacterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9EA058222479F400DF18DC /* CharacterCollectionViewCell.m */; };
-		4F9EA05D22247A8600DF18DC /* DataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9EA05C22247A8600DF18DC /* DataHandler.m */; };
 		4F9EA0612224996500DF18DC /* UrlCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9EA0602224996500DF18DC /* UrlCreator.m */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +33,6 @@
 		4F9EA055222479DC00DF18DC /* CharactersCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharactersCollectionViewController.m; sourceTree = "<group>"; };
 		4F9EA057222479F400DF18DC /* CharacterCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterCollectionViewCell.h; sourceTree = "<group>"; };
 		4F9EA058222479F400DF18DC /* CharacterCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterCollectionViewCell.m; sourceTree = "<group>"; };
-		4F9EA05B22247A8600DF18DC /* DataHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataHandler.h; sourceTree = "<group>"; };
-		4F9EA05C22247A8600DF18DC /* DataHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataHandler.m; sourceTree = "<group>"; };
 		4F9EA05F2224996500DF18DC /* UrlCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UrlCreator.h; sourceTree = "<group>"; };
 		4F9EA0602224996500DF18DC /* UrlCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UrlCreator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,7 +72,6 @@
 				4F166D522225171F005686E3 /* Character.h */,
 				4F166D532225171F005686E3 /* Character.m */,
 				4F9EA0622224997500DF18DC /* Networking */,
-				4F9EA05E222497A200DF18DC /* DataHandling */,
 				4F9EA05A222479FF00DF18DC /* CollectionView */,
 				4F9EA0442224797F00DF18DC /* Main.storyboard */,
 				4F9EA0472224798400DF18DC /* Assets.xcassets */,
@@ -95,15 +91,6 @@
 				4F9EA058222479F400DF18DC /* CharacterCollectionViewCell.m */,
 			);
 			path = CollectionView;
-			sourceTree = "<group>";
-		};
-		4F9EA05E222497A200DF18DC /* DataHandling */ = {
-			isa = PBXGroup;
-			children = (
-				4F9EA05B22247A8600DF18DC /* DataHandler.h */,
-				4F9EA05C22247A8600DF18DC /* DataHandler.m */,
-			);
-			path = DataHandling;
 			sourceTree = "<group>";
 		};
 		4F9EA0622224997500DF18DC /* Networking */ = {
@@ -187,7 +174,6 @@
 			files = (
 				4F9EA0612224996500DF18DC /* UrlCreator.m in Sources */,
 				4F166D542225171F005686E3 /* Character.m in Sources */,
-				4F9EA05D22247A8600DF18DC /* DataHandler.m in Sources */,
 				4F9EA059222479F400DF18DC /* CharacterCollectionViewCell.m in Sources */,
 				4F9EA04E2224798400DF18DC /* main.m in Sources */,
 				4F9EA056222479DC00DF18DC /* CharactersCollectionViewController.m in Sources */,

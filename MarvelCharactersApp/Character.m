@@ -28,7 +28,7 @@
     // also adds size of picture + .jpg to the end of the url so it can be called for the image directly
     NSMutableString *secureString = [NSMutableString stringWithString:url];
     [secureString insertString:@"s" atIndex:4];
-    [secureString appendString:@"/portrait_medium.jpg"];
+    [secureString appendString:@"/portrait_small.jpg"];
     _collectionViewImageUrl = secureString;
 }
 

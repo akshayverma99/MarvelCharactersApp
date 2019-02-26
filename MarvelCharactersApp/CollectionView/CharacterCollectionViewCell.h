@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Character.h"
+#import "CharactersCollectionViewController.h"
 
 @interface CharacterCollectionViewCell : UICollectionViewCell
 
 @property (strong,nonatomic) Character *character;
+
 
 @end

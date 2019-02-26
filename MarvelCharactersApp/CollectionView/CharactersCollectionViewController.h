@@ -10,4 +10,6 @@
 
 @interface CharactersCollectionViewController : UICollectionViewController
 
+@property (strong,nonatomic) NSMutableArray *characters;
+
 @end

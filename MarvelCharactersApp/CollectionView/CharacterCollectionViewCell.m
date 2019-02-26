@@ -25,15 +25,15 @@
     if (self.character){
         NSURLSession *session = [NSURLSession sharedSession];
         NSURL *url = [NSURL URLWithString: self.character.collectionViewImageUrl];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:20];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
         
         [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (data){
                 UIImage *image = [UIImage imageWithData:data];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.imageView setImage:image];
-                });
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.imageView.image = image;
+                    });
+          
             }
         }]resume];
     }
