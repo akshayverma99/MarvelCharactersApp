@@ -14,6 +14,7 @@
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *url;
 @property (strong,nonatomic) NSString *collectionViewImageUrl;
+@property (strong,nonatomic) NSString *bigPosterUrl;
 
 
 +(id)createNewCharacterWith: (NSString *)name withUrl:(NSString *)url;

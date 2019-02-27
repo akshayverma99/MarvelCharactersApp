@@ -16,11 +16,14 @@
 
 @implementation CharacterCollectionViewCell
 
+// When the character is set, the cell gets the characters image
 -(void)setCharacter:(Character *)character{
     _character = character;
     [self getImageForCell];
 }
 
+// Gets and assigns the image for the current character, if it cant, a placeholder image will be displayed
+// also updates the name label
 -(void)getImageForCell{
     if (self.character){
         NSURLSession *session = [NSURLSession sharedSession];
@@ -33,7 +36,11 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.imageView.image = image;
                     });
-          
+            }else if(error){
+                UIImage *notFoundImage = [UIImage imageNamed:@"portrait_uncanny"];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.imageView.image = notFoundImage;
+                });
             }
         }]resume];
     }

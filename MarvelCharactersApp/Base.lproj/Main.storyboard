@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w6l-Et-j95">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +15,7 @@
             <objects>
                 <collectionViewController id="w6l-Et-j95" customClass="CharactersCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Y2E-8P-LFz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zB0-SS-KyU">
@@ -31,7 +32,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="75" height="115"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yMq-dr-kzE">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yMq-dr-kzE">
                                             <rect key="frame" x="0.0" y="0.0" width="75" height="115"/>
                                         </imageView>
                                     </subviews>
@@ -52,10 +53,64 @@
                             <outlet property="delegate" destination="w6l-Et-j95" id="B8V-16-h9x"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="4eR-b4-u5x" kind="presentation" identifier="posterView" modalPresentationStyle="overCurrentContext" id="dRD-EV-XEU"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xcb-y8-qe2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="331" y="71"/>
+        </scene>
+        <!--Poster View Controller-->
+        <scene sceneID="2zq-GK-gi3">
+            <objects>
+                <viewController id="4eR-b4-u5x" customClass="PosterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p61-KE-jJZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LWA-pN-lgS">
+                                <rect key="frame" x="0.0" y="20" width="414" height="661.33333333333337"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KRm-BY-KUi">
+                                <rect key="frame" x="100.66666666666667" y="691.33333333333337" width="213.66666666666663" height="34.666666666666629"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNp-Vi-0Wi">
+                                        <rect key="frame" x="0.0" y="0.33333333333325754" width="99" height="34.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3D-Man" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mg6-Le-fUC">
+                                        <rect key="frame" x="98.999999999999972" y="0.0" width="114.66666666666666" height="34.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xsd-wc-3bw" firstAttribute="trailing" secondItem="LWA-pN-lgS" secondAttribute="trailing" id="1u9-LI-IoV"/>
+                            <constraint firstItem="KRm-BY-KUi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xsd-wc-3bw" secondAttribute="leading" constant="20" id="61m-vr-sHP"/>
+                            <constraint firstItem="KRm-BY-KUi" firstAttribute="top" secondItem="LWA-pN-lgS" secondAttribute="bottom" constant="10" id="B2k-Ge-l8L"/>
+                            <constraint firstItem="KRm-BY-KUi" firstAttribute="centerX" secondItem="p61-KE-jJZ" secondAttribute="centerX" id="Jsn-Gb-J8r"/>
+                            <constraint firstItem="LWA-pN-lgS" firstAttribute="leading" secondItem="xsd-wc-3bw" secondAttribute="leading" id="iTI-bX-k5x"/>
+                            <constraint firstItem="xsd-wc-3bw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KRm-BY-KUi" secondAttribute="trailing" constant="20" id="qhh-gb-VCf"/>
+                            <constraint firstItem="LWA-pN-lgS" firstAttribute="top" secondItem="xsd-wc-3bw" secondAttribute="top" id="rpb-Wi-srw"/>
+                            <constraint firstItem="xsd-wc-3bw" firstAttribute="bottom" secondItem="KRm-BY-KUi" secondAttribute="bottom" constant="10" id="tk6-u4-sDg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xsd-wc-3bw"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="Mg6-Le-fUC" id="VCQ-fc-ivV"/>
+                        <outlet property="posterImage" destination="LWA-pN-lgS" id="Y4R-yi-OWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VtM-AG-JGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1104.8" y="70.614692653673174"/>
         </scene>
     </scenes>
 </document>

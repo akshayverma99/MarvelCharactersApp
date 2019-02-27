@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4F166D542225171F005686E3 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F166D532225171F005686E3 /* Character.m */; };
+		4F166D572225D50D005686E3 /* PosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F166D562225D50D005686E3 /* PosterViewController.m */; };
 		4F9EA0402224797F00DF18DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9EA03F2224797F00DF18DC /* AppDelegate.m */; };
 		4F9EA0462224797F00DF18DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F9EA0442224797F00DF18DC /* Main.storyboard */; };
 		4F9EA0482224798400DF18DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F9EA0472224798400DF18DC /* Assets.xcassets */; };
@@ -21,6 +22,8 @@
 /* Begin PBXFileReference section */
 		4F166D522225171F005686E3 /* Character.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		4F166D532225171F005686E3 /* Character.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		4F166D552225D50D005686E3 /* PosterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PosterViewController.h; sourceTree = "<group>"; };
+		4F166D562225D50D005686E3 /* PosterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PosterViewController.m; sourceTree = "<group>"; };
 		4F9EA03B2224797F00DF18DC /* MarvelCharactersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelCharactersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9EA03E2224797F00DF18DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4F9EA03F2224797F00DF18DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F166D582225D511005686E3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4F166D552225D50D005686E3 /* PosterViewController.h */,
+				4F166D562225D50D005686E3 /* PosterViewController.m */,
+				4F9EA05A222479FF00DF18DC /* CollectionView */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4F9EA0322224797F00DF18DC = {
 			isa = PBXGroup;
 			children = (
@@ -68,11 +81,11 @@
 			isa = PBXGroup;
 			children = (
 				4F9EA03E2224797F00DF18DC /* AppDelegate.h */,
+				4F166D582225D511005686E3 /* ViewControllers */,
 				4F9EA03F2224797F00DF18DC /* AppDelegate.m */,
 				4F166D522225171F005686E3 /* Character.h */,
 				4F166D532225171F005686E3 /* Character.m */,
 				4F9EA0622224997500DF18DC /* Networking */,
-				4F9EA05A222479FF00DF18DC /* CollectionView */,
 				4F9EA0442224797F00DF18DC /* Main.storyboard */,
 				4F9EA0472224798400DF18DC /* Assets.xcassets */,
 				4F9EA0492224798400DF18DC /* LaunchScreen.storyboard */,
@@ -175,6 +188,7 @@
 				4F9EA0612224996500DF18DC /* UrlCreator.m in Sources */,
 				4F166D542225171F005686E3 /* Character.m in Sources */,
 				4F9EA059222479F400DF18DC /* CharacterCollectionViewCell.m in Sources */,
+				4F166D572225D50D005686E3 /* PosterViewController.m in Sources */,
 				4F9EA04E2224798400DF18DC /* main.m in Sources */,
 				4F9EA056222479DC00DF18DC /* CharactersCollectionViewController.m in Sources */,
 				4F9EA0402224797F00DF18DC /* AppDelegate.m in Sources */,

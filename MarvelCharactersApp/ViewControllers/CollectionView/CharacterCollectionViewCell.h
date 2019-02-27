@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Character.h"
 #import "CharactersCollectionViewController.h"
+#import "Character.h"
 
 @interface CharacterCollectionViewCell : UICollectionViewCell
 

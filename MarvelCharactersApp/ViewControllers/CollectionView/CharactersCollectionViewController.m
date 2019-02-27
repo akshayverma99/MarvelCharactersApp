@@ -10,6 +10,7 @@
 #import "UrlCreator.h"
 #import "Character.h"
 #import "CharacterCollectionViewCell.h"
+#import "PosterViewController.h"
 
 @interface CharactersCollectionViewController ()
 
@@ -17,6 +18,9 @@
 @property (strong,nonatomic) NSArray *characterNames;
 @property (strong,nonatomic) NSArray *urlsForThumbnails;
 @property NSInteger total;
+
+// Holds the characters indexpath when pressed so it can be used outside of the function scope
+@property NSInteger indexPath;
 
 @end
 
@@ -26,9 +30,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.total = 0;
     self.urlCreator = [[UrlCreator alloc] init];
+    
+    // Need to assign to empty array because you cant append to nil
     self.characters = [NSMutableArray array];
     // Do any additional setup after loading the view.
     [self getCharacters];
@@ -39,9 +45,13 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+// Passes the posterView the selected character
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    if([[segue identifier] isEqualToString:@"posterView"]){
+        PosterViewController *newVC = [segue destinationViewController];
+        newVC.character = self.characters[self.indexPath];
+    }
+    
 }
 
 
@@ -68,9 +78,15 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%li", indexPath.row);
+    self.indexPath = indexPath.row;
+    [self performSegueWithIdentifier:@"posterView" sender:nil];
 }
 
+#pragma mark - Networking
+
+// Gets a list of the first 100 characters of the marvel api
+// then gets rid of all the characters that don't have images
+// reloads the collection view when its done
 - (void)getCharacters{
     if (self.urlCreator){
         NSURLSession *session = [NSURLSession sharedSession];
@@ -91,11 +107,17 @@ static NSString * const reuseIdentifier = @"Cell";
                     [self.collectionView reloadData];
                 });
                 
+                
+            }else if (error){
+                [self presentNetworkErrorModalWithDescription:error.localizedDescription];
             }
         }]resume];
     }
 }
 
+
+// Adds a character to the array of characters
+// Note: Characters are not added if they have no images assigned to their urls
 - (void)addCharacter:(NSString *)name withUrl:(NSString *)url{
     // If the image exists for a character, add them to the array that will be shown in the collectionview
     // Only adds characters to the character array if they have an image
@@ -107,7 +129,7 @@ static NSString * const reuseIdentifier = @"Cell";
             
             self.total -= 1;
             
-            // If they have a correct image url and an actual image from that url then they are added
+            // If they have a correct image url and an actual image from that url, then they are added
             if (data){
                 UIImage *image = [UIImage imageWithData:data];
                 if (image){
@@ -120,7 +142,6 @@ static NSString * const reuseIdentifier = @"Cell";
             if(self.total <= 0){
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.collectionView reloadData];
-                    NSLog(@"Total: %li", self.total);
                 });
             }
         }]resume];
@@ -128,6 +149,22 @@ static NSString * const reuseIdentifier = @"Cell";
         self.total -= 1;
     }
     
+}
+
+// Presents a model if there is a network error and provides a decription
+-(void)presentNetworkErrorModalWithDescription:(NSString *)description{
+    
+    UIAlertController *alertModal = [UIAlertController alertControllerWithTitle:@"Network Error" message:description preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *retryButton = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self getCharacters];
+    }];
+    
+    UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler: nil];
+    
+    [alertModal addAction:cancelButton];
+    [alertModal addAction:retryButton];
+    
+    [self presentViewController:alertModal animated:NO completion:nil];
 }
 
 

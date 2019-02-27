@@ -19,17 +19,20 @@
     return character;    
 }
 
-// Sets the url and sets the url to get a small version of the image
+// When the url is set, urls for the small and large versions of the poster are created
 -(void) setUrl:(NSString *)url{
     _url = url;
-    
     // Converts the string into one that can be used to get the picture
     // Creates https instead of http
     // also adds size of picture + .jpg to the end of the url so it can be called for the image directly
-    NSMutableString *secureString = [NSMutableString stringWithString:url];
-    [secureString insertString:@"s" atIndex:4];
-    [secureString appendString:@"/portrait_small.jpg"];
-    _collectionViewImageUrl = secureString;
+    NSMutableString *smallPosterString = [NSMutableString stringWithString:url];
+    [smallPosterString insertString:@"s" atIndex:4];
+    [smallPosterString appendString:@"/portrait_small.jpg"];
+    _collectionViewImageUrl = smallPosterString;
+    NSMutableString *bigPosterString = [NSMutableString stringWithString:url];
+    [bigPosterString insertString:@"s" atIndex:4];
+    [bigPosterString appendString:@"/portrait_uncanny.jpg"];
+    _bigPosterUrl = bigPosterString;
 }
 
 
